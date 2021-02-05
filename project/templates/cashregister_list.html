@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h1>Kancelaria Adwokacka</h1>
+      <ol>
+          <li><a href="/">Strona główna</a></li>
+          <li><a href="../../">Kontrahent-dane</a></li>
+      </ol>
+
+<h2> Klient: {{ client.name }} </h2>
+<h2> Dłużnik: {{ debtor.name }}</h2>
+
+
+Roliczenia przypisane do sprawy numer: <h2> {{ case.case_number }}</h2>
+
+    <table class="tg">
+    <thead>
+  <tr>
+      <th class="tg-baqh"> Sprawa </th>
+      <th class="tg-0lax"> Dłużnik </th>
+      <th class="tg-0lax"> Klient</th>
+      <th class="tg-0lax">Adresat</th>
+      <th class="tg-0lax">Numer konta </th>
+      <th class="tg-0lax">Tytuł przelewu </th>
+      <th class="tg-0lax">Wartość</th>
+      <th class="tg-0lax">Dokument</th>
+
+
+  </tr>
+</thead>
+        {% for cashregister in cashregisters %}
+
+<tbody>
+  <tr>
+
+      <td class="tg-0lax"> {{ case.case_number }}</td>
+      <td class="tg-0lax"> {{ debtor.name }}</td>
+      <td class="tg-0lax"> {{ client.name}}</td>
+      <td class="tg-0lax"> {{ cashregister.addressee }}</td>
+      <td class="tg-0lax"> {{ cashregister.account_number }}</td>
+      <td class="tg-0lax"> {{ cashregister.transfer_title }}</td>
+      <td class="tg-0lax"> {{ cashregister.value }}</td>
+      <td class="tg-0lax"> {{ cashregister.get_document_display }}</td>
+      <td class="tg-0lax"> {{ cashregister.get_rodzaj_rozliczenia_display }}</td>
+
+
+  </tr>
+  {% endfor %}
+    <tr>
+        <td class="tg-0lax"> Suma </td>
+        <td class="tg-0lax"> - </td>
+        <td class="tg-0lax"> - </td>
+        <td class="tg-0lax"> - </td>
+        <td class="tg-0lax"> - </td>
+        <td class="tg-0lax"> - </td>
+        <td class="tg-0lax"> {{ suma }}   </td>
+
+    </tr>
+</tbody>
+</table>
+    <br>
+    <a
+                href="../case-list"
+                class="btn btn-success rounded-0 pt-0 pb-0 pr-4 pl-4">Powrót do listy spraw dłużnika </a>
+    <a href="../../case-list"
+                class="btn btn-success rounded-0 pt-0 pb-0 pr-4 pl-4">Powrót do listy spraw Klienta </a>
+{% endblock %}

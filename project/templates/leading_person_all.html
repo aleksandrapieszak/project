@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Kancelaria Adwokacka</h1>
+      <ol>
+          <li><a href="/">Strona główna</a></li>
+    </ol>
+
+        <table class="tg">
+    <thead>
+  <tr>
+    <th class="tg-baqh"> NAZWISKO </th>
+    <th class="tg-0lax"> KLIENT </th>
+
+  </tr>
+</thead>
+        {% for l in leading_person %}
+
+<tbody>
+  <tr>
+      <td class="tg-0lax"> {{ l.name }}</td>
+      <td class="tg-0lax">{{ l.client }}</td>
+  </tr>
+</tbody>
+        {% endfor %}
+            </table>
+
+    <div class="col noPadding d-flex justify-content-end mb-2">
+    <a href="/add-leading-person" class="btn btn-success rounded-0 pt-0 pb-0 pr-4 pl-4">Przydziel klientowi opiekuna </a>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h1>Kancelaria Adwokacka</h1>
+      <ol>
+          <li><a href="/">Strona główna</a></li>
+          <li><a href="../">Kontrahent-dane</a></li>
+          <li><a href="../debtor-list">Dłużnicy</a></li>
+          <li><a href="../case-list">Sprawy</a></li>
+      </ol>
+
+<h2> {{ client.name }} </h2>
+
+    <table class="tg">
+    <thead>
+  <tr>
+    <th class="tg-baqh">numer umowy</th>
+    <th class="tg-0lax">data rozpoczęcia umowy</th>
+    <th class="tg-0lax">data zakończenia umowy</th>
+    <th class="tg-0lax">zwrot kosztów korespondencji</th>
+    <th class="tg-0lax">zwrot kosztów prawnych</th>
+    <th class="tg-0lax">klient zaliczkowy</th>
+  </tr>
+</thead>
+        {% for contract in contracts %}
+
+<tbody>
+  <tr>
+      <td class="tg-0lax"> {{ contract.number }} </td>
+      <td class="tg-0lax"> {{ contract.date_from }}</td>
+      <td class="tg-0lax">{{ contract.date_to }}</td>
+      <td class="tg-0lax"> {% if contract.corespondent_cost %} TAK {% else %} NIE {% endif %}</td>
+      <td class="tg-0lax">{% if contract.law_cost %} TAK {% else %} NIE {% endif %}</td>
+      <td class="tg-0lax">{% if contract.zaliczka %} TAK {% else %} NIE {% endif %}</td>
+  </tr>
+</tbody>
+        {% endfor %}
+</table>
+    <br>
+    <div class="col noPadding d-flex justify-content-end mb-2"><a
+                href="../add-contract"
+                class="btn btn-success rounded-0 pt-0 pb-0 pr-4 pl-4">Dodaj Umowę do tego klienta </a></div>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h1>Kancelaria Adwokacka</h1>
+      <ol>
+          <li><a href="/">Strona główna</a></li>
+          <li><a href="../{{ client.id }}/contract-list">Umowy klienta</a></li>
+          <li><a href="../{{ client.id }}/debtor-list">Dłużnicy klienta</a></li>
+            <li><a href="../{{ client.id }}/case-list">Sprawy klienta</a></li>
+            <li><a href="../{{ client.id }}/cashregister-list"> Rozliczenia </a></li>
+
+      </ol>
+
+    <h2> {{ client.name }} </h2>
+
+        Nazwa: {{ client.name }} <br>
+        Ulica: {{ client.address }} <br>
+        Kod Pocztowy: {{ client.post_code }} <br>
+        Miasto: {{ client.city }} <br>
+        Nip: {{ client.nip }} <br>
+    <br>
+        Osoby do kontaktu:
+    <br>
+            {% for person in contact_person %}
+                <br>
+                    Nazwisko: {{ person.surname }} <br>
+                    Numer telefonu: {{ person.phone_number }}<br>
+                    email: {{ person.email }} <br>
+                <br>
+            {% endfor %}
+
+<div class="col noPadding d-flex justify-content-end mb-2">
+    <a href="../../client/{{ client.id }}/contact-person-add/"
+       class="btn btn-success rounded-0 pt-0 pb-0 pr-4 pl-4">Dodaj osobę kontaktową </a>
+</div>
+
+    <div class="col noPadding d-flex justify-content-end mb-2">
+    <a href="../../client/{{ client.id }}/add-contract"
+       class="btn btn-success rounded-0 pt-0 pb-0 pr-4 pl-4">Dodaj umowę do tego klienta </a>
+</div>
+
+{% endblock %}

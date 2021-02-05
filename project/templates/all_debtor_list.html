@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Kancelaria Adwokacka</h1>
+      <ol>
+          <li><a href="/">Strona główna</a></li>
+
+    </ol>
+
+        <table class="tg">
+    <thead>
+  <tr>
+    <th class="tg-baqh"> NAZWA </th>
+    <th class="tg-0lax"> NIP </th>
+      <th class="tg-0lax"> KLIENT </th>
+
+  </tr>
+</thead>
+        {% for debtor in debtors %}
+
+<tbody>
+  <tr>
+      <td class="tg-0lax"> {{ debtor.name }}</td>
+      <td class="tg-0lax"> {{ debtor.nip }}</td>
+      <td class="tg-0lax"> {{ debtor.client }}</td>
+
+
+  </tr>
+</tbody>
+        {% endfor %}
+            </table>
+
+{% endblock %}

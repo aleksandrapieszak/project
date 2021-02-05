@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Kancelaria Adwokacka</h1>
+      <ol>
+          <li><a href="/">Strona główna</a></li>
+    </ol>
+
+        <table class="tg">
+    <thead>
+  <tr>
+    <th class="tg-baqh"> Numer sprawy </th>
+    <th class="tg-0lax"> Opis sprawy </th>
+      <th class="tg-0lax"> Dłużnik </th>
+      <th class="tg-0lax"> klient </th>
+
+  </tr>
+</thead>
+        {% for case in cases %}
+
+<tbody>
+  <tr>
+      <td class="tg-0lax"> {{ case.case_number }}</td>
+      <td class="tg-0lax">{{ case.case_description }}</td>
+      <td class="tg-0lax">{{ case.debtor }}</td>
+      <td class="tg-0lax">{{ case.client }}</td>
+
+
+  </tr>
+</tbody>
+        {% endfor %}
+            </table>
+
+{% endblock %}

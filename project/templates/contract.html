@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+        <h1>Kancelaria Adwokacka</h1>
+      <ol>
+          <li><a href="/">Strona główna</a></li>
+          <li><a href="../../client-list">Kontrahenci</a></li>
+      </ol>
+
+        <h2> {{ contract.client.name }} </h2>
+
+            Numer umowy: {{ contract.number }} <br>
+            Data rozpoczęcia umowy : {{ contract.date_from }} <br>
+            Data zakończenia umowy : {{ contract.date_to }} <br>
+            Pokrywa koszty korespondencji: {% if contract.law_cost %} TAK {% else %} NIE {% endif %} <br>
+            pokrywa koszty prawne: {% if contract.law_cost %} TAK {% else %} NIE {% endif %}<br>
+            klient zaliczkowy: {% if contract.law_cost %} TAK {% else %} NIE {% endif %}<br>
+            <br>
+
+{% endblock %}

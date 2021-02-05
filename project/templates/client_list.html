@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Kancelaria Adwokacka</h1>
+      <ol>
+          <li><a href="/">Strona główna</a></li>
+    </ol>
+
+        <table class="tg">
+    <thead>
+  <tr>
+    <th class="tg-baqh"> NAZWA </th>
+    <th class="tg-0lax"> NIP </th>
+    <th class="tg-0lax"> ADRES </th>
+    <th class="tg-0lax"> KOD POCZTOWY </th>
+    <th class="tg-0lax"> MIASTO </th>
+  </tr>
+</thead>
+        {% for client in clients %}
+
+<tbody>
+  <tr>
+      <td class="tg-0lax"><a href="../client/{{ client.id }}"> {{ client.name }}</a></td>
+      <td class="tg-0lax"> {{ client.nip }}</td>
+      <td class="tg-0lax"> {{ client.address }}</td>
+      <td class="tg-0lax">{{ client.post_code }}</td>
+      <td class="tg-0lax">{{ client.city }}</td>
+  </tr>
+</tbody>
+        {% endfor %}
+            </table>
+
+
+    <div class="col noPadding d-flex justify-content-end mb-2"><a
+                href="../add-client"
+                class="btn btn-success rounded-0 pt-0 pb-0 pr-4 pl-4">Dodaj Nowego klienta </a></div>
+
+{% endblock %}

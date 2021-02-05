@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Kancelaria Adwokacka</h1>
+      <ol>
+          <li><a href="/">Strona główna</a></li>
+          <li><a href="../../../client-list">Kontrahenci</a></li>
+      </ol>
+
+    <h2>Dodawanie umowy:</h2>
+
+        <form method="post">
+            {% csrf_token %}
+            <!--tu się form zaczyna-->
+            {{ form.as_p }}
+            <!--tu się form kończy-->
+            <input type="submit" value="Dodaj">
+        </form>
+
+{% endblock %}

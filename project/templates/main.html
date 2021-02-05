@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+    <h1>Kancelaria Adwokacka</h1>
+        <ol>
+          <li><a href="/">Strona główna</a></li>
+          <li><a href="client-list">Kontrahenci</a></li>
+        <li><a href="debtor-list">Dłużnicy</a></li>
+        <li><a href="case-list">Sprawy</a></li>
+        <li><a href="cashregister-list">Rozliczenia</a></li>
+        </ol>
+
+<div class="col noPadding d-flex justify-content-end mb-2">
+    <a href="/add-client/" class="btn btn-success rounded-0 pt-0 pb-0 pr-4 pl-4">Dodaj Nowego klienta </a>
+</div>
+
+<div class="col noPadding d-flex justify-content-end mb-2">
+    <a href="/add-contract/" class="btn btn-success rounded-0 pt-0 pb-0 pr-4 pl-4">Dodaj Nową umowę </a>
+</div>
+
+    <div class="col noPadding d-flex justify-content-end mb-2">
+    <a href="/leading-person-list" class="btn btn-success rounded-0 pt-0 pb-0 pr-4 pl-4">Lista opiekunów klienta </a>
+</div>
+
+
+
+{% endblock %}

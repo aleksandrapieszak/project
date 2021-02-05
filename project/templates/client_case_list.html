@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h1>Kancelaria Adwokacka</h1>
+      <ol>
+          <li><a href="/">Strona główna</a></li>
+          <li><a href="../{{ client.id }}">Kontrahent-dane</a></li>
+      </ol>
+
+<h2> {{ client.name }} </h2>
+
+    Sprawy Klienta
+
+    <table class="tg">
+    <thead>
+  <tr>
+    <th class="tg-baqh">numer sprawy</th>
+    <th class="tg-0lax">opis sprawy</th>
+      <th class="tg-0lax">nazwa dłużnika</th>
+      <th class="tg-0lax">Dodaj rozliczenie do sprawy</th>
+
+
+  </tr>
+</thead>
+        {% for case in cases %}
+
+
+<tbody>
+
+  <tr>
+      <td class="tg-0lax"> {{ case.case_number }}</td>
+      <td class="tg-0lax">{{ case.case_description }}</td>
+      <td class="tg-0lax">{{case.debtor }}</td>
+      <td class="tg-0lax"><a
+                href="../{{ client.id}}/{{ case.debtor.id }}/{{ case.id }}/add-cashregister"
+                class="btn btn-success rounded-0 pt-0 pb-0 pr-4 pl-4">Dodaj Rozliczenie do tej sprawy </a></td>
+               <td class="tg-0lax"> <a        href="../{{ client.id }}/{{ case.debtor.id }}/{{ case.id }}/cashregister-list"
+                class="btn btn-success rounded-0 pt-0 pb-0 pr-4 pl-4">Pokaż rozliczenia tej sprawy </a></td>
+
+  </tr>
+</tbody>
+
+    {% endfor %}
+</table>
+    <br>
+
+
+{% endblock %}

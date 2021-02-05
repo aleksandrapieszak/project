@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Kancelaria Adwokacka</h1>
+      <ol>
+          <li><a href="/">Strona główna</a></li>
+
+    </ol>
+
+        <table class="tg">
+    <thead>
+  <tr>
+    <th class="tg-baqh"> Sprawa </th>
+      <th class="tg-0lax"> Dłużnik </th>
+      <th class="tg-0lax"> Klient</th>
+      <th class="tg-0lax">Adresat</th>
+      <th class="tg-0lax">Numer konta </th>
+      <th class="tg-0lax">Tytuł przelewu </th>
+      <th class="tg-0lax">Wartość</th>
+      <th class="tg-0lax">Dokument</th>
+
+  </tr>
+</thead>
+        {% for cashregister in cashregisters %}
+
+<tbody>
+  <tr>
+      <td class="tg-0lax"> {{ cashregister.id_case }}</td>
+      <td class="tg-0lax"> {{ cashregister.id_debtor }}</td>
+      <td class="tg-0lax"> {{ cashregister.client}}</td>
+      <td class="tg-0lax"> {{ cashregister.addressee }}</td>
+      <td class="tg-0lax"> {{ cashregister.account_number }}</td>
+      <td class="tg-0lax"> {{ cashregister.transfer_title }}</td>
+      <td class="tg-0lax"> {{ cashregister.value }}</td>
+      <td class="tg-0lax"> {{ cashregister.get_document_display }}</td>
+      <td class="tg-0lax"> {{ cashregister.get_rodzaj_rozliczenia_display }}</td>
+
+
+  </tr>
+</tbody>
+        {% endfor %}
+            </table>
+
+{% endblock %}

@@ -1,0 +1,104 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Charmonman:400,700|Open+Sans:400,600,700&amp;subset=latin-ext"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+
+    <style>
+      /* ------------------------CZĘŚĆ-GÓRNA-MENU------------------------ */
+
+      /* wygląd głównego elementu - ol */
+      ol {
+        list-style-type:none;
+        padding:0;
+        margin:0;
+        background-color:#FFF;
+        font-size:18px;
+        height:2em;
+        line-height:2em;
+        text-align:center;
+      }
+
+      /* wygląd wszystkich elementów - a - znajdujących się w elemencie - ol */
+      ol a {
+        display:block;
+        text-decoration:none;
+        color:#000;
+        padding:0 5px;
+      }
+
+      /* wygląd elementów - li - wszystkich dzieci elementu - ol */
+      ol > li {
+        float:left;
+        width:150px;
+        margin-left:1px;
+        background-color:#FDD700;
+        height:2em;
+      }
+
+      /* wygląd elementu - li - pierwszego dziecka elementu - ol */
+      ol > li:first-child {
+        margin-left:0;
+      }
+
+      /* wygląd elementów - li - wszystkich dzieci elementu - ol - po najechaniu kursorem myszki na element - li */
+      ol > li:hover {
+        background-color:#EEE;
+      }
+
+      /* wygląd elementu - a - dziecka elementu - li - będącego dzieckiem elementu - ol -
+      po najechaniu kursorem myszki na element - li */
+      ol > li:hover > a {
+        color:#09C;
+      }
+
+      /* wygląd elementu - ul - dziecka elementu - li - będącego dzieckiem elementu - ol -
+      po najechaniu kursorem myszki na element - li */
+      ol > li:hover > ul {
+        display:block;
+      }
+
+div#kontener {
+width: 960px; margin: 0 auto;
+}
+
+div#content {
+width: 100%;
+}
+      </style>
+
+
+</head>
+
+<body>
+<div id="kontener">
+    <div id="content">
+
+            <div class="col noPadding d-flex justify-content-end mb-2">
+    <a href="/login/" class="btn btn-success rounded-0 pt-0 pb-0 pr-4 pl-4">Zaloguj się </a>
+</div>
+        <div class="col noPadding d-flex justify-content-end mb-2">
+    <a href="/logout/" class="btn btn-success rounded-0 pt-0 pb-0 pr-4 pl-4">Wyloguj się </a>
+</div>
+        <div class="col noPadding d-flex justify-content-end mb-2">
+    <a href="/add-user/" class="btn btn-success rounded-0 pt-0 pb-0 pr-4 pl-4">Dodaj nowego użytkownika </a>
+</div>
+
+{% block content %}{% endblock %}
+
+<footer>Zalogowany jako: {{user.username}}</footer>
+    </div>
+</div>
+</body>
+</html>
